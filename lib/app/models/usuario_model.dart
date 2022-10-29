@@ -25,12 +25,14 @@ class UsuarioModel {
   }
 
   void validarLogin(String email, String senha) async {
-    Uri uri = Uri.parse('http://localhost:3000/api/usuario/getone?id=1');
-    print(uri);
+    Uri uri = Uri.parse(
+        'http://localhost:3000/api/usuario/validar?email=$email&senha=$senha');
     var response = await http.get(uri);
-    print(response);
-    var dados = json.decode(response.body) as List;
+    var dados = json.decode(response.body);
     print(dados);
+    var usuario = UsuarioModel.fromMap(dados);
+    print(usuario);
+    if (usuario == true) {}
   }
 
   bool ValidarLogin(usuario, senha) {

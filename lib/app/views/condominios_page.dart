@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mvc_app/app/controllers/home_controller.dart';
-
 import '../componentes/menu.dart';
+import '../controllers/condominio_controller.dart';
 
-class HomePage extends StatelessWidget {
-  final controller = Get.put(HomeController());
+class CondominioPage extends StatelessWidget {
+  final controller = Get.put(CondominioController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuItens(),
       appBar: AppBar(
-        title: Text('Incremento / Decremento'),
+        title: Text('Condominios'),
       ),
       body: SafeArea(
         child: Column(
@@ -20,11 +19,7 @@ class HomePage extends StatelessWidget {
           children: [
             Center(
               child: Obx(
-                () => Text(
-                  '${controller.click.tap}',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 60),
-                ),
+                () => Text("Teste2"),
               ),
             ),
             SizedBox(height: 10),
@@ -36,7 +31,7 @@ class HomePage extends StatelessWidget {
                   color: Colors.grey,
                   child: IconButton(
                     icon: Icon(Icons.add),
-                    onPressed: () => controller.click.increment(),
+                    onPressed: () => {},
                   ),
                 ),
                 SizedBox(width: 10),
@@ -44,7 +39,7 @@ class HomePage extends StatelessWidget {
                   color: Colors.grey,
                   child: IconButton(
                     icon: Icon(Icons.remove),
-                    onPressed: () => controller.click.decrement(),
+                    onPressed: () => {},
                   ),
                 ),
               ],
